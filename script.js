@@ -46,7 +46,6 @@ function symmetricTableFill(i, j, n){
     arr = arr.map((subArr) => subArr.map((x) => Number(x)));
     makeTableHTML(arr)
     vectors(arr)
-    console.log(vectors(arr))
     indexes(vectors(arr))
 
 }
@@ -64,7 +63,7 @@ function vectors(arr){
             sum += arr[j][i];
         }
         vectorK.push(sum)
-        document.getElementById(`k${i}`).innerHTML = sum;
+        document.getElementById(`k${i}`).innerHTML = sum.toFixed(4);
     }
 
 
@@ -84,7 +83,7 @@ function vectors(arr){
     vectorW = vectorW.map((n) => n / maxOfW);
 
     for (let i = 0; i < vectorW.length; i++) {
-        document.getElementById(`w${i}`).innerHTML = vectorW[i];
+        document.getElementById(`w${i}`).innerHTML = vectorW[i].toFixed(4);
         
     }
 
@@ -94,7 +93,7 @@ function vectors(arr){
     let vectorR = MatrixVectorMultiplication(arr, vectorW)
 
     for (let i = 0; i < vectorR.length; i++) {
-        document.getElementById(`r${i}`).innerHTML = vectorR[i];
+        document.getElementById(`r${i}`).innerHTML = vectorR[i].toFixed(4);
         
     }
 
@@ -105,7 +104,7 @@ function vectors(arr){
     for (let i = 0; i < vectorR.length; i++) {
         elem = vectorR[i] / vectorW[i];
         lambda.push(elem);
-        document.getElementById(`l${i}`).innerHTML = elem;
+        document.getElementById(`l${i}`).innerHTML = elem.toFixed(4);
         
     }
 
@@ -126,11 +125,11 @@ function indexes(lambda){
     let SS = 1.49; // по таблице
     let OS = (IS / SS) * 100;
 
-    document.getElementById('b').innerHTML = b;
-    document.getElementById('lmax').innerHTML = lambdaMax;
-    document.getElementById('is').innerHTML = IS;
+    document.getElementById('b').innerHTML = b.toFixed(3);
+    document.getElementById('lmax').innerHTML = lambdaMax.toFixed(3);
+    document.getElementById('is').innerHTML = IS.toFixed(3);
     document.getElementById('ss').innerHTML = SS;
-    document.getElementById('os').innerHTML = OS;
+    document.getElementById('os').innerHTML = OS.toFixed(3);
 
 }
 
